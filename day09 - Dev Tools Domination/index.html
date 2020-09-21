@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // 技巧：避免处理大量的用来调试的console.log()
+      let console = {
+        isDev: true,
+        log(...args) {
+          if (!this.isDev) return;
+          window.console.log("this is my code 👇");
+          window.console.log(...args);
+        },
+        warn(...args) {
+          if (!this.isDev) return;
+          window.console.warn("this is my code 👇");
+          window.console.warn(...args);
+        },
+        error(...args) {
+          if (!this.isDev) return;
+          window.console.error("this is my code 👇");
+          window.console.error(...args);
+        },
+        info(...args) {
+          if (!this.isDev) return;
+          window.console.info("this is my code 👇");
+          window.console.info(...args);
+        },
+        assert(...args) {
+          if (!this.isDev) return;
+          window.console.assert("this is my code 👇");
+          window.console.assert(...args);
+        },
+        dir(...args) {
+          if (!this.isDev) return;
+          window.console.dir("this is my code 👇");
+          window.console.dir(...args);
+        },
+        table(...args) {
+          if (!this.isDev) return;
+          window.console.log("this is my code 👇");
+          window.console.table(...args);
+        },
+        count(...args) {
+          if (!this.isDev) return;
+          window.console.log("this is my code 👇");
+          window.console.count(...args);
+        },
+        time(...args) {
+          if (!this.isDev) return;
+          window.console.log("this is my code 👇");
+          window.console.time(...args);
+        },
+      };
+
+      // Regular
+      console.log(12, 2);
+      console.log("%c住手", "font-size:60px;color:red;");
+      // Interpolated
+      console.log("My name is %s", "wkd");
+      // Styled
+
+      // warning!
+      console.warn("警告");
+      // Error :|
+      console.error("error");
+      // Info
+      console.info("info");
+      // Testing
+      console.assert(true, "message");
+      // clearing
+      //CTRL+L
+      // Viewing DOM Elements
+      console.dir(console);
+      // Grouping together
+      console.table(dogs, ["name"]);
+      // counting
+      console.count("Wes");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      // timing
+      console.time("test");
+
+      console.timeEnd("test");
+    </script>
+  </body>
+</html>
